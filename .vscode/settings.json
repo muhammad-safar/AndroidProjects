@@ -1,0 +1,12 @@
+{
+    "java.server.launchMode": "Standard",
+    "java.import.gradle.enabled": false,
+    "java.import.maven.enabled": false,
+    "java.project.referencedLibraries": [
+        "sdk/platforms/api-28/android.jar",
+    ],
+    "java.project.sourcePaths": [
+        "projects/apcc/source/java",
+        "projects/apcc/build/gen"
+    ]
+}
