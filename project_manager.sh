@@ -99,7 +99,7 @@ function buildProject {
 
 	[ $? -ne 0 ] && exit;
 
-	echo "    [*] Invoking d8: generate dex files $buildMode"
+	echo "    [*] Invoking d8: generate dex files: $buildMode"
 	if [ $buildMode == 'release' ]; then
 		find \
 			$PROJECTS_DIR/$projectName/build/obj/ \
@@ -166,15 +166,15 @@ function buildProject {
 
 ARG_COMMAND=$1
 ARG_PROJECT_NAME=$2
-
+ARG_BUILD_MODE=${3:-'debug'}
 
 if [[ $ARG_COMMAND == "init" ]]; then
 	echo "  [-] Initializing project: $ARG_PROJECT_NAME"
-	initProject $ARG_PROJECT_NAME "$3"
+	initProject $ARG_PROJECT_NAME "$ARG_BUILD_MODE"
 	exit
 elif [[ $ARG_COMMAND == "build" ]]; then
 	echo "  [-] Building project: $ARG_PROJECT_NAME"
-	buildProject $ARG_PROJECT_NAME $3
+	buildProject $ARG_PROJECT_NAME "$ARG_BUILD_MODE"
 	exit
 else
 	echo "  [!] Unknown command: $ARG_COMMAND"
